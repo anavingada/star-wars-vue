@@ -26,14 +26,14 @@
             The SW Universe
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link to="/" class="dropdown-item">
+            <router-link :to="{ name: 'theUniverse' }" class="dropdown-item">
               All Universe
             </router-link>
             <router-link to="/" class="dropdown-item"> Characters </router-link>
             <router-link to="/" class="dropdown-item"> Movies </router-link>
             <router-link to="/" class="dropdown-item"> Planets </router-link>
-            <router-link to="/" class="dropdown-item"> Species </router-link>
             <router-link to="/" class="dropdown-item"> Spaceships </router-link>
+            <router-link to="/" class="dropdown-item"> Species </router-link>
             <router-link to="/" class="dropdown-item"> Vehicles </router-link>
           </div>
         </li>
