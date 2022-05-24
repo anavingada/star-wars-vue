@@ -1,0 +1,73 @@
+<template>
+  <h1 class="text-center mt-2 mb-4">Materials</h1>
+  <p class="text-center">
+    This web app was built with Vue and used resources available on the
+    internet. Please find below all references to the used resources.
+  </p>
+  <p class="text-center">Thank you.</p>
+  <div class="container mt-5 mb-5">
+    <h2>API</h2>
+    <div v-for="api in apis" :key="api.id">
+      <a :href="api.link" target="_blank" class="d-flex"
+        ><h3>{{ api.title }}</h3>
+        <i class="fas fa-external-link-alt"></i
+      ></a>
+      <p>{{ api.obs }}</p>
+    </div>
+    <h2 class="mt-5">Images</h2>
+    <div v-for="image in images" :key="image.id">
+      <a :href="image.link" target="_blank" class="d-flex"
+        ><h3>{{ image.title }}</h3>
+        <i class="fas fa-external-link-alt"></i
+      ></a>
+      <p>{{ image.obs }}</p>
+      <hr />
+    </div>
+  </div>
+</template>
+
+<script>
+import { ApisSource } from '@/sources/apis.js';
+import { ImagesSource } from '@/sources/images.js';
+
+export default {
+  data() {
+    return {
+      apis: ApisSource.apis,
+      images: ImagesSource.images,
+    };
+  },
+};
+</script>
+
+<style scoped>
+h2 {
+  color: #ffe81f;
+}
+h3 {
+  color: #ffffff;
+  font-size: 1.35rem !important;
+}
+a,
+i {
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover,
+i:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+.fa-external-link-alt {
+  align-self: center;
+  margin-left: 10px;
+  width: 10px;
+  height: auto;
+}
+hr {
+  height: 2px;
+  color: #ffe81f;
+  opacity: 0.8;
+  border-radius: 2px;
+}
+</style>

@@ -5,7 +5,7 @@
     </div>
     <div class="d-flex col-6 justify-content-center">
       <p><a href="mailto:anavingada@gmail.com">Contact</a></p>
-      <router-link to="/"><!-- <router-link :to="{ name: 'theMaterials' }"> -->
+      <router-link :to="{ name: 'theMaterials' }">
         Material Sources
       </router-link>
     </div>
