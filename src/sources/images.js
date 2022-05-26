@@ -13,9 +13,9 @@ const images = [
     },
     {
         id: '003',
-        title: 'Background',
-        link: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Night_sky_in_the_Alps_-_panoramio_%281%29.jpg/1200px-Night_sky_in_the_Alps_-_panoramio_%281%29.jpg',
-        obs: 'From Wikimedia. Background image used in all the web.'
+        title: 'Characters` poster',
+        link: 'https://64.media.tumblr.com/9d934355977657e2b2c0ce0d363510f1/tumblr_p21hrfFep81v230yto1_1280.jpg',
+        obs: 'From tumblr.com. Image used in the the SW Universe page for characters reference.'
     },
     {
         id: '004',
@@ -31,15 +31,15 @@ const images = [
     },
     {
         id: '006',
-        title: 'Species` poster',
-        link: 'https://www.tvovermind.com/wp-content/uploads/2017/10/Greedo-640x360.jpg',
-        obs: 'From tvovermind.com. Image used in the the SW Universe page for species reference.'
-    },
-    {
-        id: '007',
         title: 'Spacechips` poster',
         link: 'https://m.media-amazon.com/images/I/71m+UJwiabL._AC_SL1500_.jpg',
         obs: 'From media-amazon.com. Image used in the the SW Universe page for spaceships reference.'
+    },
+    {
+        id: '007',
+        title: 'Species` poster',
+        link: 'https://www.tvovermind.com/wp-content/uploads/2017/10/Greedo-640x360.jpg',
+        obs: 'From tvovermind.com. Image used in the the SW Universe page for species reference.'
     },
     {
         id: '008',
