@@ -11,7 +11,7 @@ const currentPageMixin = {
             let paramsURL = new URLSearchParams(this.currentURL);
             this.currentPage = paramsURL.get('page');
             this.currentPage = this.$route.query.page;
-            console.log('currentPage: ' + this.currentPage);
+            // console.log('currentPage: ' + this.currentPage);
             return this.currentPage;
         }
     },

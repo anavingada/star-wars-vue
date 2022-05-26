@@ -31,8 +31,20 @@ const redirectHomeMixin = {
     },
 };
 
+const redirectToMoviesMixin = {
+    methods: {
+        redirectToMovies() {
+            this.$router.push({
+                path: '/the-sw-universe/movies',
+                name: 'theMovies'
+            });
+        }
+    },
+};
+
 export {
     pageNotFoundMixin,
     somethingWrongMixin,
-    redirectHomeMixin
+    redirectHomeMixin,
+    redirectToMoviesMixin
 };
