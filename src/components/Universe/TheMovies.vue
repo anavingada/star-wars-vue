@@ -3,7 +3,7 @@
   <div v-if="movies === null" class="text-center">
     <p>No movies found!</p>
   </div>
-  <div v-else-if="movies.length === 0" class="text-center">
+  <div v-else-if="isLoading" class="text-center">
     <p>Loading...</p>
   </div>
   <div v-else>
@@ -22,7 +22,7 @@
             {{ movie.title }}
           </h2>
           <p>Episode {{ movie.episode_id }}</p>
-          <button @click="viewMovie(movie)" class="view-btn">View</button>
+          <button @click="viewMovie(movie)" class="btn-view">View</button>
         </div>
       </div>
     </div>
@@ -58,8 +58,9 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       movies: [],
-      totalmovies: '',
+      totalResults: '',
       maxPerPage: 10,
       currentURL: '',
       currentPage: null,
@@ -69,6 +70,7 @@ export default {
   },
   methods: {
     async displayMovies() {
+      this.isLoading = true;
       await moviesService.getMovies(this.currentPage).then((response) => {
         if (response == 404) {
           this.pageNotFound();
@@ -87,6 +89,7 @@ export default {
         }
       });
       this.$refs.pagination.checkButtons();
+      this.isLoading = false;
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -104,15 +107,13 @@ export default {
       });
     },
     viewMovie(movie) {
-      console.log(movie);
-      console.log('function view movie');
-
       this.$router.push({
         name: 'MovieDetail',
         path: '/the-sw-universe/movies/:name',
         params: {
           name: movie.title.replace(/\s+/g, '-').toLowerCase(),
-          url: movie.url
+          url: movie.url,
+          data: movie,
         },
       });
     },
@@ -149,7 +150,7 @@ p {
 a {
   text-decoration: none !important;
 }
-.view-btn {
+.btn-view {
   background-color: #ffe81f;
   padding: 10px;
   margin: 0;
@@ -159,7 +160,7 @@ a {
   font-weight: bold;
   width: 100%;
 }
-.view-btn:hover {
+.btn-view:hover {
   background-color: unset;
   color: #ffffff;
 }
