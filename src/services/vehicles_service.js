@@ -1,7 +1,7 @@
 // GET list of movies
-const getMovies = async function (currentPage) {
+const getVehicles = async function (currentPage) {
     try {
-        var url = 'https://swapi.dev/api/films?page=' + currentPage;
+        var url = 'https://swapi.dev/api/vehicles/?page=' + currentPage;
         const response = await fetch(url);
         if (response.ok) {
             return response.json();
@@ -15,9 +15,9 @@ const getMovies = async function (currentPage) {
 };
 
 // Get info of a movie based on the ID
-const getMovieInfo = async function (movieUrl) {
+const getVehicleInfo = async function (vehicleUrl) {
     try {
-        const response = await fetch(movieUrl);
+        const response = await fetch(vehicleUrl);
         if (response.ok) {
             return response.json();
         } else {
@@ -29,7 +29,7 @@ const getMovieInfo = async function (movieUrl) {
     }
 };
 
-export const moviesService = {
-    getMovies,
-    getMovieInfo
+export const vehiclesService = {
+    getVehicles,
+    getVehicleInfo
 };
