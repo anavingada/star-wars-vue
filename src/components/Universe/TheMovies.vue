@@ -40,19 +40,11 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import urlParamsMixin from '@/mixins/urlParams.js';
-import {
-  pageNotFoundMixin,
-  somethingWrongMixin,
-} from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
 import { moviesService } from '@/services/movies_service.js';
 
 export default {
-  mixins: [
-    currentPageMixin,
-    urlParamsMixin,
-    pageNotFoundMixin,
-    somethingWrongMixin,
-  ],
+  mixins: [currentPageMixin, urlParamsMixin, redirectionLinksMixin],
   components: {
     ThePagination,
   },

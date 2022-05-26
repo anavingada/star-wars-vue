@@ -83,23 +83,13 @@
 </template>
 
 <script>
-import {
-  pageNotFoundMixin,
-  somethingWrongMixin,
-  redirectToMoviesMixin,
-} from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
 import { displayInfoMixin } from '@/mixins/displayInfo.js';
 import { searchesMixin } from '@/mixins/searches.js';
 import { moviesService } from '@/services/movies_service.js';
 
 export default {
-  mixins: [
-    pageNotFoundMixin,
-    somethingWrongMixin,
-    redirectToMoviesMixin,
-    displayInfoMixin,
-    searchesMixin,
-  ],
+  mixins: [redirectionLinksMixin, displayInfoMixin, searchesMixin],
   data() {
     return {
       isLoading: false,
