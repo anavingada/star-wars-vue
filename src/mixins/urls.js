@@ -1,10 +1,11 @@
-const urlParamsMixin = {
+const urlsMixin = {
     data() {
         return {
             currentURL: ''
         };
     },
     methods: {
+        // Function to check if URL has params
         checkUrlParams(routeFullpath) {
             this.currentURL = routeFullpath;
             if (this.currentURL.includes('?')) {
@@ -19,7 +20,20 @@ const urlParamsMixin = {
                 // it doesn't have params
                 return false;
             }
-        }
+        },
+        // Function to updateQuery after click to change page
+        updateQuery(path, name, page) {
+            this.$router.push({
+                path: path,
+                name: name,
+                query: {
+                    page: page,
+                },
+            });
+        },
     },
 };
-export default urlParamsMixin;
+
+export {
+    urlsMixin
+};
