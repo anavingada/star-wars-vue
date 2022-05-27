@@ -144,6 +144,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
+@import '@/assets/styles/icons.scss';
+
 hr {
   color: #ffe81f;
   opacity: 100%;
@@ -160,9 +162,5 @@ span {
   color: #ffffff;
   letter-spacing: 0;
   font-weight: 100;
-}
-
-.fa-angle-right {
-  color: #ffe81f;
 }
 </style>

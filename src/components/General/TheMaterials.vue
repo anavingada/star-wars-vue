@@ -40,7 +40,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/styles/icons.scss';
+
 h2 {
   color: #ffe81f;
 }
@@ -57,12 +59,6 @@ a:hover,
 i:hover {
   text-decoration: underline;
   color: #ffffff;
-}
-.fa-external-link-alt {
-  align-self: center;
-  margin-left: 10px;
-  width: 10px;
-  height: auto;
 }
 hr {
   height: 2px;
