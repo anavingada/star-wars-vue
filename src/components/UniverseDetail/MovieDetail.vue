@@ -142,7 +142,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/styles/buttons.scss';
 hr {
   color: #ffe81f;
   opacity: 100%;
@@ -161,24 +162,7 @@ span {
   font-weight: 100;
 }
 
-.btn-search {
-  background-color: #ffe81f;
-  border: 1px solid #ffe81f;
-  padding: 10px 20px;
-  color: #000000;
-  border-radius: 5px;
-}
-.btn-search:hover {
-  background-color: unset;
-  color: #ffffff;
-}
 .fa-angle-right {
   color: #ffe81f;
-}
-.btn-return {
-  background-color: #ffe81f;
-  border: 1px solid #ffe81f;
-  color: #000000;
-  border-radius: 5px;
 }
 </style>

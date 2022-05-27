@@ -1,0 +1,56 @@
+/* Styles for buttons */
+
+/* Button Home */
+.btn-home {
+    background-color: #ffe81f;
+    padding: 10px;
+    margin: 0;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #ffe81f;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.btn-home:hover {
+    background-color: unset;
+    color: #ffffff;
+}
+
+/* Button View Detail */
+.btn-view {
+    background-color: #ffe81f;
+    padding: 10px;
+    margin: 0;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #ffe81f !important;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-view:hover {
+    background-color: unset;
+    color: #ffffff;
+}
+
+/* Button Return */
+.btn-return {
+    background-color: #ffe81f;
+    border: 1px solid #ffe81f;
+    color: #000000;
+    border-radius: 5px;
+}
+
+/* Button Search */
+.btn-search {
+    background-color: #ffe81f;
+    border: 1px solid #ffe81f;
+    padding: 10px 20px;
+    color: #000000;
+    border-radius: 5px;
+  }
+  .btn-search:hover {
+    background-color: unset;
+    color: #ffffff;
+  }

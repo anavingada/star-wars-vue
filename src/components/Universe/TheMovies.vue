@@ -130,7 +130,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/styles/buttons.scss';
+
 p {
   color: #ffffff;
 }
@@ -141,20 +143,6 @@ p {
 }
 a {
   text-decoration: none !important;
-}
-.btn-view {
-  background-color: #ffe81f;
-  padding: 10px;
-  margin: 0;
-  color: #000000;
-  text-decoration: none;
-  border: 1px solid #ffe81f !important;
-  font-weight: bold;
-  width: 100%;
-}
-.btn-view:hover {
-  background-color: unset;
-  color: #ffffff;
 }
 h2 {
   min-height: 80px;

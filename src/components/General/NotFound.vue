@@ -8,19 +8,6 @@
   </div>
 </template>
 
-<style scoped>
-.btn-home {
-    background-color: #ffe81f;
-    padding: 10px;
-    margin: 0;
-    color: #000000;
-    text-decoration: none;
-    border: 1px solid #ffe81f;
-    font-weight: bold;
-    border-radius: 3px;
-}
-.btn-home:hover {
-  background-color: unset;
-  color:#ffffff;
-}
+<style lang="scss" scoped>
+@import '@/assets/styles/buttons.scss';
 </style>
