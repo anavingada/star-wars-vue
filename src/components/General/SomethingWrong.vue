@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import { redirectHomeMixin } from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
 
 export default {
-  mixins: [redirectHomeMixin],
+  mixins: [redirectionLinksMixin],
   data() {
     return {
       countDown: 5,
