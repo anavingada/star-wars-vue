@@ -6,7 +6,10 @@
   </h3>
   <hr class="col-6 mx-auto mt-5 mb-5" />
   <div class="d-flex justify-content-around">
-    <p>All resources are referenced <router-link :to="{ name: 'theMaterials' }">here</router-link>.</p>
+    <p>
+      All resources are referenced
+      <router-link :to="{ name: 'theMaterials' }">here</router-link>.
+    </p>
     <p>
       If you have any questions, please
       <a href="mailto:anavingada@gmail.com">contact me</a>.

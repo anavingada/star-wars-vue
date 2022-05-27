@@ -1,7 +1,9 @@
 <template>
   <div class="mt-5 footer-container d-md-flex">
     <div class="d-flex col-6 text-center">
-      <p style="width: 100%">Star Wars Vue App. Ana Vingada. All rights reserved.</p>
+      <p style="width: 100%">
+        Star Wars Vue App. Ana Vingada. All rights reserved.
+      </p>
     </div>
     <div class="d-flex col-6 justify-content-center">
       <p><a href="mailto:anavingada@gmail.com">Contact</a></p>
@@ -30,6 +32,6 @@ a {
   margin: 0 1rem !important;
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 </style>

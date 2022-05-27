@@ -1,7 +1,11 @@
 <template>
   <div class="col-3 text-center">
     <router-link :to="{ name: 'intro' }">
-        <img src="~@/assets/images/logo.png" alt="Star Wars Logo" class="ps-5 pe-5" />
+      <img
+        src="~@/assets/images/logo.png"
+        alt="Star Wars Logo"
+        class="ps-5 pe-5"
+      />
     </router-link>
   </div>
 </template>
