@@ -64,21 +64,25 @@ export default {
   methods: {
     async showPlanets() {
       this.isLoading = true;
-      await planetsService.getPlanets(this.currentPage).then((response) => {
-        if (response == 404) {
-          this.pageNotFound();
-          return;
-        } else if (response.results) {
-          this.planets = response.results;
-          this.totalResults = response.count;
-          this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
-        } else {
-          this.somethingWrong();
-          return;
-        }
-      });
-      this.$refs.pagination.checkButtons();
-      this.isLoading = false;
+      await planetsService
+        .getPlanets(this.currentPage)
+        .then((response) => {
+          if (response == 404) {
+            this.pageNotFound();
+            return;
+          } else if (response.results) {
+            this.planets = response.results;
+            this.totalResults = response.count;
+            this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
+          } else {
+            this.somethingWrong();
+            return;
+          }
+        })
+        .finally(() => {
+          this.$refs.pagination.checkButtons();
+          this.isLoading = false;
+        });
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -109,12 +113,12 @@ export default {
         path: '/the-sw-universe/planets',
         query: { page: 1 },
       });
-    }
-
-    if (this.queryDone === false) {
-      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
-      this.showPlanets();
-      this.queryDone = true;
+    } else {
+      if (this.queryDone === false) {
+        this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+        await this.showPlanets();
+        this.queryDone = true;
+      }
     }
   },
 };

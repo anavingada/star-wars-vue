@@ -79,9 +79,11 @@ export default {
             this.somethingWrong();
             return;
           }
+        })
+      .finally(() => {
+          this.$refs.pagination.checkButtons();
+          this.isLoading = false;
         });
-      this.$refs.pagination.checkButtons();
-      this.isLoading = false;
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -108,16 +110,16 @@ export default {
     if (!hasParam) {
       // if the url doesn't have params, add page 1
       await this.$router.push({
-        name: 'theCharacters',
+         name: 'theCharacters',
         path: '/the-sw-universe/characters',
         query: { page: 1 },
       });
-    }
-
-    if (this.queryDone === false) {
-      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
-      this.showCharacters();
-      this.queryDone = true;
+    } else {
+      if (this.queryDone === false) {
+        this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+        await this.showCharacters();
+        this.queryDone = true;
+      }
     }
   },
 };

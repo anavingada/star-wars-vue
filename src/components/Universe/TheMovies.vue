@@ -65,21 +65,25 @@ export default {
   methods: {
     async showMovies() {
       this.isLoading = true;
-      await moviesService.getMovies(this.currentPage).then((response) => {
-        if (response == 404) {
-          this.pageNotFound();
-          return;
-        } else if (response.results) {
-          this.movies = response.results;
-          this.totalResults = response.count;
-          this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
-        } else {
-          this.somethingWrong();
-          return;
-        }
-      });
-      this.$refs.pagination.checkButtons();
-      this.isLoading = false;
+      await moviesService
+        .getMovies(this.currentPage)
+        .then((response) => {
+          if (response == 404) {
+            this.pageNotFound();
+            return;
+          } else if (response.results) {
+            this.movies = response.results;
+            this.totalResults = response.count;
+            this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
+          } else {
+            this.somethingWrong();
+            return;
+          }
+        })
+        .finally(() => {
+          this.$refs.pagination.checkButtons();
+          this.isLoading = false;
+        });
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -110,12 +114,12 @@ export default {
         path: '/the-sw-universe/movies',
         query: { page: 1 },
       });
-    }
-
-    if (this.queryDone === false) {
-      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
-      this.showMovies();
-      this.queryDone = true;
+    } else {
+      if (this.queryDone === false) {
+        this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+        await this.showMovies();
+        this.queryDone = true;
+      }
     }
   },
 };

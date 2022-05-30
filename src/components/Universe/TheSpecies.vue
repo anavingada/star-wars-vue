@@ -65,21 +65,25 @@ export default {
   methods: {
     async showSpecies() {
       this.isLoading = true;
-      await speciesService.getSpecies(this.currentPage).then((response) => {
-        if (response == 404) {
-          this.pageNotFound();
-          return;
-        } else if (response.results) {
-          this.species = response.results;
-          this.totalResults = response.count;
-          this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
-        } else {
-          this.somethingWrong();
-          return;
-        }
-      });
-      this.$refs.pagination.checkButtons();
-      this.isLoading = false;
+      await speciesService
+        .getSpecies(this.currentPage)
+        .then((response) => {
+          if (response == 404) {
+            this.pageNotFound();
+            return;
+          } else if (response.results) {
+            this.species = response.results;
+            this.totalResults = response.count;
+            this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
+          } else {
+            this.somethingWrong();
+            return;
+          }
+        })
+        .finally(() => {
+          this.$refs.pagination.checkButtons();
+          this.isLoading = false;
+        });
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -110,12 +114,12 @@ export default {
         path: '/the-sw-universe/species',
         query: { page: 1 },
       });
-    }
-
-    if (this.queryDone === false) {
-      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
-      this.showSpecies();
-      this.queryDone = true;
+    } else {
+      if (this.queryDone === false) {
+        this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+        await this.showSpecies();
+        this.queryDone = true;
+      }
     }
   },
 };

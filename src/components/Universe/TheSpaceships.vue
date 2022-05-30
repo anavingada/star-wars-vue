@@ -76,9 +76,11 @@ export default {
             this.somethingWrong();
             return;
           }
+        })
+        .finally(() => {
+          this.$refs.pagination.checkButtons();
+          this.isLoading = false;
         });
-      this.$refs.pagination.checkButtons();
-      this.isLoading = false;
     },
     changePage(updatedCurrentPage) {
       this.currentPage = updatedCurrentPage;
@@ -109,12 +111,12 @@ export default {
         path: '/the-sw-universe/spaceships',
         query: { page: 1 },
       });
-    }
-
-    if (this.queryDone === false) {
-      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
-      this.showSpaceships();
-      this.queryDone = true;
+    } else {
+      if (this.queryDone === false) {
+        this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+        await this.showSpaceships();
+        this.queryDone = true;
+      }
     }
   },
 };
