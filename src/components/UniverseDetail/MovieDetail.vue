@@ -18,59 +18,87 @@
           Release date: <span>{{ movieInfo.release_date }}</span>
         </p>
       </div>
-      <p class="detailSection fw-bold mt-5">Characters:</p>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-3" v-for="character in characters" :key="character.url">
-          <p>
-            {{ character.name }}
-            <router-link to="#"><i class="fas fa-angle-right"></i></router-link>
-            <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
-          </p>
+      <div v-if="characters.length">
+        <p class="detailSection fw-bold mt-5">Characters:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div
+            class="col-3"
+            v-for="character in characters"
+            :key="character.url"
+          >
+            <p>
+              {{ character.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+            </p>
+          </div>
         </div>
       </div>
-      <p class="detailSection detailSection fw-bold mt-5">Planets:</p>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-3" v-for="planet in planets" :key="planet.url">
-          <p>
-            {{ planet.name }}
-            <router-link to="#"><i class="fas fa-angle-right"></i></router-link>
-            <!-- <router-link :to="{ name: 'PlanetsDetail', path: '/the-sw-universe/planets/:name', params: { name: planet.name.replace(/\s+/g, '-').toLowerCase(), url: planet.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
-          </p>
+      <div v-if="planets.length">
+        <p class="detailSection fw-bold mt-5">Planets:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div class="col-3" v-for="planet in planets" :key="planet.url">
+            <p>
+              {{ planet.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'PlanetsDetail', path: '/the-sw-universe/planets/:name', params: { name: planet.name.replace(/\s+/g, '-').toLowerCase(), url: planet.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+            </p>
+          </div>
         </div>
       </div>
-      <p class="detailSection fw-bold mt-5">Spaceships:</p>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-3" v-for="spaceship in spaceships" :key="spaceship.url">
-          <p>
-            {{ spaceship.name }}
-            <router-link to="#"><i class="fas fa-angle-right"></i></router-link>
-            <!-- <router-link :to="{ name: 'spaceshipsDetail', path: '/the-sw-universe/spaceships/:name', params: { name: spaceship.name.replace(/\s+/g, '-').toLowerCase(), url: spaceship.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
-          </p>
+      <div v-if="spaceships.length">
+        <p class="detailSection fw-bold mt-5">Spaceships:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div
+            class="col-3"
+            v-for="spaceship in spaceships"
+            :key="spaceship.url"
+          >
+            <p>
+              {{ spaceship.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'spaceshipsDetail', path: '/the-sw-universe/spaceships/:name', params: { name: spaceship.name.replace(/\s+/g, '-').toLowerCase(), url: spaceship.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+            </p>
+          </div>
         </div>
       </div>
-      <p class="detailSection fw-bold mt-5">Species:</p>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-3" v-for="specie in species" :key="specie.url">
-          <p>
-            {{ specie.name }}
-            <router-link to="#"><i class="fas fa-angle-right"></i></router-link>
-            <!-- <router-link :to="{ name: 'SpeciesDetail', path: '/the-sw-universe/species/:name', params: { name: specie.name.replace(/\s+/g, '-').toLowerCase(), url: specie.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
-          </p>
+      <div v-if="species.length">
+        <p class="detailSection fw-bold mt-5">Species:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div class="col-3" v-for="specie in species" :key="specie.url">
+            <p>
+              {{ specie.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'SpeciesDetail', path: '/the-sw-universe/species/:name', params: { name: specie.name.replace(/\s+/g, '-').toLowerCase(), url: specie.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+            </p>
+          </div>
         </div>
       </div>
-      <p class="detailSection fw-bold mt-5">Vehicles:</p>
-      <div class="d-flex flex-wrap align-items-center">
-        <div class="col-3" v-for="vehicle in vehicles" :key="vehicle.url">
-          <p>
-            {{ vehicle.name }}
-            <router-link to="#"><i class="fas fa-angle-right"></i></router-link>
-            <!-- <router-link :to="{ name: 'VehiclesDetail', path: '/the-sw-universe/vehicles/:name', params: { name: vehicle.name.replace(/\s+/g, '-').toLowerCase(), url: vehicle.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
-          </p>
+      <div v-if="vehicles.length">
+        <p class="detailSection fw-bold mt-5">Vehicles:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div class="col-3" v-for="vehicle in vehicles" :key="vehicle.url">
+            <p>
+              {{ vehicle.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'VehiclesDetail', path: '/the-sw-universe/vehicles/:name', params: { name: vehicle.name.replace(/\s+/g, '-').toLowerCase(), url: vehicle.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+            </p>
+          </div>
         </div>
       </div>
     </div>
     <div class="mt-5 text-center">
-      <button class="btn-search" @click="searchMovie(movieUrlName)">
+      <button class="btn-search" @click="search(movieUrlName)">
         <i class="fas fa-mouse-pointer"></i> Run a google search on this movie
       </button>
     </div>

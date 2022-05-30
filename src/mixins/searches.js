@@ -1,7 +1,7 @@
 const searchesMixin = {
     methods: {
-        searchMovie(movieName) {
-            var searchURL = 'http://www.google.com/search?q=star-wars-' + movieName;
+        search(name) {
+            var searchURL = 'http://www.google.com/search?q=star-wars-' + name;
             window.open(searchURL, '_blank');
         }
     },
@@ -10,4 +10,3 @@ const searchesMixin = {
 export {
     searchesMixin
 };
-

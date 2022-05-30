@@ -41,6 +41,7 @@ import ThePagination from './ThePagination.vue';
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
 import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+
 import { moviesService } from '@/services/movies_service.js';
 
 export default {
