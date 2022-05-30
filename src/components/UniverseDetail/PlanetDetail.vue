@@ -22,7 +22,7 @@
         </div>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Characters residents:</p>
+        <p class="detailSection fw-bold mt-5">Residents:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
