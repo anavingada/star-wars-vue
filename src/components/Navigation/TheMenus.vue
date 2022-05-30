@@ -31,7 +31,7 @@
             </router-link>
             <router-link :to="{ name: 'theCharacters', query: {page: 1} }" class="dropdown-item"> Characters </router-link>
             <router-link :to="{ name: 'theMovies', query: {page: 1} }" class="dropdown-item"> Movies </router-link>
-            <router-link to="/" class="dropdown-item"> Planets </router-link>
+            <router-link :to="{ name: 'thePlanets', query: {page: 1} }" class="dropdown-item"> Planets </router-link>
             <router-link to="/" class="dropdown-item"> Spaceships </router-link>
             <router-link to="/" class="dropdown-item"> Species </router-link>
             <router-link to="/" class="dropdown-item"> Vehicles </router-link>

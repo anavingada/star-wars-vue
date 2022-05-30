@@ -29,6 +29,12 @@ const redirectionLinksMixin = {
                 path: '/the-sw-universe/characters',
                 name: 'theCharacters'
             });
+        },
+        redirectToPlanets() {
+            this.$router.push({
+                path: '/the-sw-universe/planets',
+                name: 'thePlanets'
+            });
         }
     }
 };

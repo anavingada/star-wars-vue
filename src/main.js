@@ -15,9 +15,11 @@ import TheMaterials from './components/General/TheMaterials.vue';
 import TheUniverse from './components/Universe/TheUniverse.vue';
 import TheMovies from './components/Universe/TheMovies.vue';
 import TheCharacters from './components/Universe/TheCharacters.vue';
+import ThePlanets from './components/Universe/ThePlanets.vue';
 
 import MovieDetail from './components/UniverseDetail/MovieDetail.vue';
 import CharacterDetail from './components/UniverseDetail/CharacterDetail.vue';
+import PlanetDetail from './components/UniverseDetail/PlanetDetail.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -30,7 +32,9 @@ const router = createRouter({
         { path: '/the-sw-universe/movies', name: 'theMovies', component: TheMovies },
         { path: '/the-sw-universe/movies/:name', name: 'MovieDetail', component: MovieDetail },
         { path: '/the-sw-universe/characters', name: 'theCharacters', component: TheCharacters },
-        { path: '/the-sw-universe/characters/:name', name: 'CharacterDetail', component: CharacterDetail }
+        { path: '/the-sw-universe/characters/:name', name: 'CharacterDetail', component: CharacterDetail },
+        { path: '/the-sw-universe/planets', name: 'thePlanets', component: ThePlanets },
+        { path: '/the-sw-universe/planets/:name', name: 'PlanetDetail', component: PlanetDetail }
     ],
     linkActiveClass: 'active'
 });
