@@ -35,6 +35,12 @@ const redirectionLinksMixin = {
                 path: '/the-sw-universe/planets',
                 name: 'thePlanets'
             });
+        },
+        redirectToSpaceships() {
+            this.$router.push({
+                path: '/the-sw-universe/spaceships',
+                name: 'theSpaceships'
+            });
         }
     }
 };

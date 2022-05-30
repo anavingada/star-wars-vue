@@ -1,0 +1,153 @@
+<template>
+  <div v-if="isLoading" class="text-center">
+    <p>Loading...</p>
+  </div>
+  <div v-else>
+    <div>
+      <h1 class="text-center mt-2 mb-4">{{ spaceshipInfo.name }}</h1>
+      <hr class="mx-auto col-3" />
+      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <div class="d-flex">
+        <div class="col-6">
+          <p>Model: {{ spaceshipInfo.model }}</p>
+          <p>Manufacturer: {{ spaceshipInfo.manufacturer }}</p>
+          <p>Class: {{ spaceshipInfo.starship_class }}</p>
+          <p>Cost in credits: {{ spaceshipInfo.cost_in_credits }}</p>
+          <p>Length: {{ spaceshipInfo.length }}</p>
+          <p>Maximum Speed: {{ spaceshipInfo.max_atmosphering_speed }}</p>
+        </div>
+        <div class="col-6">
+          <p>Consumables: {{ spaceshipInfo.consumables }}</p>
+          <p>Hyperdrive Rating: {{ spaceshipInfo.hyperdrive_rating }}</p>
+          <p>MGLT: {{ spaceshipInfo.MGLT }}</p>
+          <p>Cargo Capacity: {{ spaceshipInfo.cargo_capacity }}</p>
+          <p>Crew: {{ spaceshipInfo.crew }}</p>
+          <p>Passengers: {{ spaceshipInfo.passengers }}</p>
+        </div>
+      </div>
+      <div v-if="characters.length">
+        <p class="detailSection fw-bold mt-5">Pilots:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div
+            class="col-3"
+            v-for="character in characters"
+            :key="character.url"
+          >
+            <p>
+              {{ character.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <div v-if="movies.length">
+        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <div class="d-flex flex-wrap align-items-center">
+          <div class="col-3" v-for="movie in movies" :key="movie.url">
+            <p>
+              {{ movie.name }}
+              <router-link to="#"
+                ><i class="fas fa-angle-right"></i
+              ></router-link>
+              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 text-center">
+      <button class="btn-search" @click="search(spaceshipUrlName)">
+        <i class="fas fa-mouse-pointer"></i> Run a google search on this
+        spaceship
+      </button>
+    </div>
+  </div>
+  <div class="mt-5 text-center">
+    <button class="btn-return" @click="redirectToSpaceships()">
+      Return to spaceships
+    </button>
+  </div>
+</template>
+
+<script>
+import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import { displayInfoMixin } from '@/mixins/displayInfo.js';
+import { searchesMixin } from '@/mixins/searches.js';
+
+import { spaceshipsService } from '@/services/spaceships_service.js';
+
+export default {
+  mixins: [redirectionLinksMixin, displayInfoMixin, searchesMixin],
+  data() {
+    return {
+      isLoading: false,
+      spaceshipUrlName: '',
+      spaceshipId: null,
+      spaceshipInfo: [],
+      characters: [],
+      movies: [],
+    };
+  },
+  methods: {
+    async displaySpaceshipInfo() {
+      this.isLoading = true;
+      await spaceshipsService
+        .getSpaceshipInfo(this.spaceshipId)
+        .then((response) => {
+          if (response == 404) {
+            this.pageNotFound();
+            return;
+          } else if (typeof response === 'object') {
+            this.spaceshipInfo = response;
+          } else {
+            this.somethingWrong();
+            return;
+          }
+        });
+      this.characters = await this.displayCharacters(this.spaceshipInfo.pilots);
+      this.movies = await this.displayMovies(this.spaceshipInfo.films);
+      this.isLoading = false;
+    },
+  },
+  mounted() {
+    this.spaceshipId = this.$route.params.url;
+    if (
+      this.spaceshipId == null ||
+      this.spaceshipId == 'undefined' ||
+      this.spaceshipId == ''
+    ) {
+      this.redirectToSpaceships();
+      return;
+    } else {
+      this.spaceshipUrlName = this.$route.params.name;
+      this.displaySpaceshipInfo();
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/buttons.scss';
+@import '@/assets/styles/icons.scss';
+
+hr {
+  color: #ffe81f;
+  opacity: 100%;
+}
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.detailSection {
+  color: #ffe81f;
+  letter-spacing: 1px;
+}
+span {
+  color: #ffffff;
+  letter-spacing: 0;
+  font-weight: 100;
+}
+</style>
