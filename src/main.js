@@ -17,11 +17,13 @@ import TheMovies from './components/Universe/TheMovies.vue';
 import TheCharacters from './components/Universe/TheCharacters.vue';
 import ThePlanets from './components/Universe/ThePlanets.vue';
 import TheSpaceships from './components/Universe/TheSpaceships.vue';
+import TheSpecies from './components/Universe/TheSpecies.vue';
 
 import MovieDetail from './components/UniverseDetail/MovieDetail.vue';
 import CharacterDetail from './components/UniverseDetail/CharacterDetail.vue';
 import PlanetDetail from './components/UniverseDetail/PlanetDetail.vue';
 import SpaceshipDetail from './components/UniverseDetail/SpaceshipDetail.vue';
+import SpecieDetail from './components/UniverseDetail/SpecieDetail.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -39,6 +41,8 @@ const router = createRouter({
         { path: '/the-sw-universe/planets/:name', name: 'PlanetDetail', component: PlanetDetail },
         { path: '/the-sw-universe/spaceships', name: 'theSpaceships', component: TheSpaceships },
         { path: '/the-sw-universe/spaceships/:name', name: 'SpaceshipDetail', component: SpaceshipDetail },
+        { path: '/the-sw-universe/species', name: 'theSpecies', component: TheSpecies },
+        { path: '/the-sw-universe/species/:name', name: 'SpecieDetail', component: SpecieDetail }
     ],
     linkActiveClass: 'active'
 });

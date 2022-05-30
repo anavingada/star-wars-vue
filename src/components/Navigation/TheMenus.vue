@@ -53,7 +53,12 @@
             >
               Spaceships
             </router-link>
-            <router-link to="/" class="dropdown-item"> Species </router-link>
+            <router-link
+              :to="{ name: 'theSpecies', query: { page: 1 } }"
+              class="dropdown-item"
+            >
+              Species
+            </router-link>
             <router-link to="/" class="dropdown-item"> Vehicles </router-link>
           </div>
         </li>

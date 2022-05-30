@@ -46,6 +46,11 @@ const redirectionLinksMixin = {
                 query: { page: 1 }
             });
         },
+        redirectToSpecies() {
+            this.$router.push({
+                path: '/the-sw-universe/species',
+                name: 'theSpecies',
+                query: { page: 1 }
             });
         }
     }
