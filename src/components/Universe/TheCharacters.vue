@@ -41,7 +41,10 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 
 import { charactersService } from '@/services/characters_service.js';
 
@@ -80,7 +83,7 @@ export default {
             return;
           }
         })
-      .finally(() => {
+        .finally(() => {
           this.$refs.pagination.checkButtons();
           this.isLoading = false;
         });
@@ -93,14 +96,14 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    }
+    },
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);
     if (!hasParam) {
       // if the url doesn't have params, add page 1
       await this.$router.push({
-         name: 'theCharacters',
+        name: 'theCharacters',
         path: '/the-sw-universe/characters',
         query: { page: 1 },
       });
@@ -117,21 +120,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
-
-p {
-  color: #ffffff;
-}
-.border {
-  border: 1px solid #ffe81f !important;
-  border-radius: 2px;
-  padding-top: 10px;
-}
-a {
-  text-decoration: none !important;
-}
-h2 {
-  min-height: 80px;
-  align-items: center;
-  display: grid;
-}
+@import '@/assets/styles/universe.scss';
 </style>

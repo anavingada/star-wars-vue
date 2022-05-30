@@ -112,34 +112,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
-
-hr {
-  height: 2px;
-  color: #ffe81f;
-  opacity: 0.8;
-  border-radius: 2px;
-}
-.noMargin {
-  margin: 0;
-}
-p {
-  color: #ffffff;
-}
-a {
-  text-decoration: none;
-  color: #000000;
-  background-color: #ffe81f;
-  border: 2px solid #ffe81f;
-  font-weight: bold;
-}
-a p {
-  color: #000000;
-}
-a:hover {
-  background-color: unset;
-  color: #ffffff;
-}
-a p:hover {
-  color: #ffffff;
-}
+@import '@/assets/styles/universe.scss';
 </style>

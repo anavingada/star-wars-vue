@@ -116,27 +116,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
-
-p {
-  color: #ffffff;
-}
-.border {
-  border: 1px solid #ffe81f !important;
-  border-radius: 2px;
-  padding-top: 10px;
-}
-a {
-  text-decoration: none !important;
-}
-h2 {
-  min-height: 80px;
-  align-items: center;
-  display: grid;
-}
-.terrain {
-  min-height: 60px;
-  padding: 0px 5px;
-  align-items: center;
-  display: grid;
-}
+@import '@/assets/styles/universe.scss';
 </style>

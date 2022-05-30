@@ -15,7 +15,7 @@
       <div
         v-for="specie in species"
         :key="specie.url"
-        class="col-md-4 p-4 text-center"
+        class="col-md-3 p-4 text-center"
       >
         <div class="border">
           <h2 style="min-height: 80px">
@@ -117,21 +117,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
-
-p {
-  color: #ffffff;
-}
-.border {
-  border: 1px solid #ffe81f !important;
-  border-radius: 2px;
-  padding-top: 10px;
-}
-a {
-  text-decoration: none !important;
-}
-h2 {
-  min-height: 80px;
-  align-items: center;
-  display: grid;
-}
+@import '@/assets/styles/universe.scss';
 </style>
