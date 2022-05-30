@@ -176,22 +176,5 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/buttons.scss';
 @import '@/assets/styles/icons.scss';
-
-hr {
-  color: #ffe81f;
-  opacity: 100%;
-}
-p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.detailSection {
-  color: #ffe81f;
-  letter-spacing: 1px;
-}
-span {
-  color: #ffffff;
-  letter-spacing: 0;
-  font-weight: 100;
-}
+@import '@/assets/styles/universe_detail.scss';
 </style>
