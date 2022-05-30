@@ -52,6 +52,13 @@ const redirectionLinksMixin = {
                 name: 'theSpecies',
                 query: { page: 1 }
             });
+        },
+        redirectToVehicles() {
+            this.$router.push({
+                path: '/the-sw-universe/vehicles',
+                name: 'theVehicles',
+                query: { page: 1 }
+            });
         }
     }
 };

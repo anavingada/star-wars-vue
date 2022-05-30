@@ -18,12 +18,14 @@ import TheCharacters from './components/Universe/TheCharacters.vue';
 import ThePlanets from './components/Universe/ThePlanets.vue';
 import TheSpaceships from './components/Universe/TheSpaceships.vue';
 import TheSpecies from './components/Universe/TheSpecies.vue';
+import TheVehicles from './components/Universe/TheVehicles.vue';
 
 import MovieDetail from './components/UniverseDetail/MovieDetail.vue';
 import CharacterDetail from './components/UniverseDetail/CharacterDetail.vue';
 import PlanetDetail from './components/UniverseDetail/PlanetDetail.vue';
 import SpaceshipDetail from './components/UniverseDetail/SpaceshipDetail.vue';
 import SpecieDetail from './components/UniverseDetail/SpecieDetail.vue';
+import VehicleDetail from './components/UniverseDetail/VehicleDetail.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -42,7 +44,9 @@ const router = createRouter({
         { path: '/the-sw-universe/spaceships', name: 'theSpaceships', component: TheSpaceships },
         { path: '/the-sw-universe/spaceships/:name', name: 'SpaceshipDetail', component: SpaceshipDetail },
         { path: '/the-sw-universe/species', name: 'theSpecies', component: TheSpecies },
-        { path: '/the-sw-universe/species/:name', name: 'SpecieDetail', component: SpecieDetail }
+        { path: '/the-sw-universe/species/:name', name: 'SpecieDetail', component: SpecieDetail },
+        { path: '/the-sw-universe/vehicles', name: 'theVehicles', component: TheVehicles },
+        { path: '/the-sw-universe/vehicles/:name', name: 'VehicleDetail', component: VehicleDetail }
     ],
     linkActiveClass: 'active'
 });
