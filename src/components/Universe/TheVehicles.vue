@@ -36,12 +36,12 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
 
 import { vehiclesService } from '@/services/vehicles_service.js';
 
 export default {
-  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin],
+  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin, viewDetailMixin],
   components: {
     ThePagination,
   },
@@ -88,17 +88,7 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    },
-    viewVehicle(vehicle) {
-      this.$router.push({
-        name: 'VehicleDetail',
-        path: '/the-sw-universe/vehicles/:name',
-        params: {
-          name: vehicle.name.replace(/\s+/g, '-').toLowerCase(),
-          url: vehicle.url,
-        },
-      });
-    },
+    }
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);

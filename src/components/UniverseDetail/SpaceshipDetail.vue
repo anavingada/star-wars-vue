@@ -35,10 +35,9 @@
           >
             <p>
               {{ character.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+              <button @click="viewCharacter(character)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -48,11 +47,10 @@
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
-              {{ movie.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+              {{ movie.title }}
+              <button @click="viewMovie(movie)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -73,14 +71,22 @@
 </template>
 
 <script>
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 import { displayInfoMixin } from '@/mixins/displayInfo.js';
 import { searchesMixin } from '@/mixins/searches.js';
 
 import { spaceshipsService } from '@/services/spaceships_service.js';
 
 export default {
-  mixins: [redirectionLinksMixin, displayInfoMixin, searchesMixin],
+  mixins: [
+    redirectionLinksMixin,
+    viewDetailMixin,
+    displayInfoMixin,
+    searchesMixin,
+  ],
   data() {
     return {
       isLoading: false,

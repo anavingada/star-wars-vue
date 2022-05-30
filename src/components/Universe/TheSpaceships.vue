@@ -38,12 +38,12 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
 
 import { spaceshipsService } from '@/services/spaceships_service.js';
 
 export default {
-  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin],
+  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin, viewDetailMixin],
   components: {
     ThePagination,
   },
@@ -90,17 +90,7 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    },
-    viewSpaceship(spaceship) {
-      this.$router.push({
-        name: 'SpaceshipDetail',
-        path: '/the-sw-universe/spaceships/:name',
-        params: {
-          name: spaceship.name.replace(/\s+/g, '-').toLowerCase(),
-          url: spaceship.url,
-        },
-      });
-    },
+    }
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);

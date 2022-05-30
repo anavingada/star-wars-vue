@@ -40,12 +40,12 @@
 import ThePagination from './ThePagination.vue';
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
 
 import { planetsService } from '@/services/planets_service.js';
 
 export default {
-  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin],
+  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin, viewDetailMixin],
   components: {
     ThePagination,
   },
@@ -92,17 +92,7 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    },
-    viewPlanet(planet) {
-      this.$router.push({
-        name: 'PlanetDetail',
-        path: '/the-sw-universe/planets/:name',
-        params: {
-          name: planet.name.replace(/\s+/g, '-').toLowerCase(),
-          url: planet.url,
-        },
-      });
-    },
+    }
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);

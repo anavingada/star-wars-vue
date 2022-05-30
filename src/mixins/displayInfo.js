@@ -28,7 +28,7 @@ const displayInfoMixin = {
         async displayMovies(movies) {
             for (var i = 0; i < movies.length; i++) {
                 await moviesService.getMovieInfo(movies[i]).then((response) => {
-                    this.moviesInfo.push({ name: response.title, url: response.url });
+                    this.moviesInfo.push({ title: response.title, url: response.url });
                 }).catch((error) => console.log('error', error));
             }
             return this.moviesInfo;

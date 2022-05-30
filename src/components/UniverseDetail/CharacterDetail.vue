@@ -26,11 +26,10 @@
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
-              {{ movie.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'CharactersDetail', path: '/the-sw-universe/characters/:name', params: { name: character.name.replace(/\s+/g, '-').toLowerCase(), url: character.url, }, }" ><i class="fas fa-angle-right"></i></router-link></p> -->
+              {{ movie.title }}
+              <button @click="viewMovie(movie)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -45,10 +44,9 @@
           >
             <p>
               {{ spaceship.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'spaceshipsDetail', path: '/the-sw-universe/spaceships/:name', params: { name: spaceship.name.replace(/\s+/g, '-').toLowerCase(), url: spaceship.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+              <button @click="viewSpaceship(spaceship)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -59,10 +57,9 @@
           <div class="col-3" v-for="specie in species" :key="specie.url">
             <p>
               {{ specie.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'SpeciesDetail', path: '/the-sw-universe/species/:name', params: { name: specie.name.replace(/\s+/g, '-').toLowerCase(), url: specie.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+              <button @click="viewSpecie(specie)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -73,10 +70,9 @@
           <div class="col-3" v-for="vehicle in vehicles" :key="vehicle.url">
             <p>
               {{ vehicle.name }}
-              <router-link to="#"
-                ><i class="fas fa-angle-right"></i
-              ></router-link>
-              <!-- <router-link :to="{ name: 'VehiclesDetail', path: '/the-sw-universe/vehicles/:name', params: { name: vehicle.name.replace(/\s+/g, '-').toLowerCase(), url: vehicle.url, }, }" ><i class="fas fa-angle-right"></i></router-link> -->
+              <button @click="viewVehicle(vehicle)" class="bg-transparent">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </p>
           </div>
         </div>
@@ -97,7 +93,10 @@
 </template>
 
 <script>
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 import { displayInfoMixin } from '@/mixins/displayInfo.js';
 import { searchesMixin } from '@/mixins/searches.js';
 
@@ -105,7 +104,12 @@ import { charactersService } from '@/services/characters_service.js';
 import { planetsService } from '@/services/planets_service.js';
 
 export default {
-  mixins: [redirectionLinksMixin, displayInfoMixin, searchesMixin],
+  mixins: [
+    redirectionLinksMixin,
+    viewDetailMixin,
+    displayInfoMixin,
+    searchesMixin,
+  ],
   data() {
     return {
       isLoading: false,

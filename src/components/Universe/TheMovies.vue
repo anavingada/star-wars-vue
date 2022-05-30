@@ -41,12 +41,15 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 
 import { moviesService } from '@/services/movies_service.js';
 
 export default {
-  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin],
+  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin, viewDetailMixin],
   components: {
     ThePagination,
   },
@@ -93,16 +96,6 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    },
-    viewMovie(movie) {
-      this.$router.push({
-        name: 'MovieDetail',
-        path: '/the-sw-universe/movies/:name',
-        params: {
-          name: movie.title.replace(/\s+/g, '-').toLowerCase(),
-          url: movie.url,
-        },
-      });
     },
   },
   async mounted() {

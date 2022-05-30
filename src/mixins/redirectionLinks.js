@@ -63,6 +63,72 @@ const redirectionLinksMixin = {
     }
 };
 
+const viewDetailMixin = {
+    methods: {
+        viewMovie(movie) {
+            this.$router.push({
+                name: 'MovieDetail',
+                path: '/the-sw-universe/movies/:name',
+                params: {
+                    name: movie.title.replace(/\s+/g, '-').toLowerCase(),
+                    url: movie.url,
+                },
+            });
+        },
+        viewCharacter(character) {
+            this.$router.push({
+                name: 'CharacterDetail',
+                path: '/the-sw-universe/characters/:name',
+                params: {
+                    name: character.name.replace(/\s+/g, '-').toLowerCase(),
+                    url: character.url,
+                },
+            });
+        },
+        viewPlanet(planet) {
+            this.$router.push({
+                name: 'PlanetDetail',
+                path: '/the-sw-universe/planets/:name',
+                params: {
+                    name: planet.name.replace(/\s+/g, '-').toLowerCase(),
+                    url: planet.url,
+                },
+            });
+        },
+        viewSpaceship(spaceship) {
+            this.$router.push({
+                name: 'SpaceshipDetail',
+                path: '/the-sw-universe/spaceships/:name',
+                params: {
+                    name: spaceship.name.replace(/\s+/g, '-').toLowerCase(),
+                    url: spaceship.url,
+                },
+            });
+        },
+        viewSpecie(specie) {
+            this.$router.push({
+                name: 'SpecieDetail',
+                path: '/the-sw-universe/species/:name',
+                params: {
+                    name: specie.name.replace(/\s+/g, '-').toLowerCase(),
+                    url: specie.url,
+                },
+            });
+        },
+        viewVehicle(vehicle) {
+            this.$router.push({
+                name: 'VehicleDetail',
+                path: '/the-sw-universe/vehicles/:name',
+                params: {
+                    name: vehicle.name.replace(/\s+/g, '-').toLowerCase(),
+                    url: vehicle.url,
+                },
+            });
+        },
+    }
+};
+
 export {
-    redirectionLinksMixin
+    redirectionLinksMixin,
+    viewDetailMixin
 };
