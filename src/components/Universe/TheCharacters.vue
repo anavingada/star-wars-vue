@@ -1,0 +1,145 @@
+<template>
+  <h1 class="text-center mt-2 mb-4">Star Wars Characters</h1>
+  <div v-if="characters === null" class="text-center">
+    <p>No characters found!</p>
+  </div>
+  <div v-else-if="isLoading" class="text-center">
+    <p>Loading...</p>
+  </div>
+  <div v-else>
+    <div class="d-flex justify-content-around ms-3 me-3">
+      <p>Total of characters: {{ totalResults }}</p>
+      <p>Page {{ currentPage }} / {{ numberOfPages }}</p>
+    </div>
+    <div class="d-md-flex flex-md-wrap mt-4">
+      <div
+        v-for="character in characters"
+        :key="character.url"
+        class="col-md-3 p-4 text-center"
+      >
+        <div class="border">
+          <h2 style="min-height: 80px">{{ character.name }}</h2>
+          <p>{{ character.gender }}</p>
+          <button @click="viewCharacter(character)" class="btn-view">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <the-pagination
+    ref="pagination"
+    :currentPage="currentPage"
+    :numberOfPages="numberOfPages"
+    @updateCurrentPage="changePage"
+  ></the-pagination>
+</template>
+
+<script>
+import ThePagination from './ThePagination.vue';
+
+import currentPageMixin from '@/mixins/currentPage.js';
+import { urlsMixin } from '@/mixins/urls.js';
+import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+
+import { charactersService } from '@/services/characters_service.js';
+
+export default {
+  mixins: [currentPageMixin, urlsMixin, redirectionLinksMixin],
+  components: {
+    ThePagination,
+  },
+  data() {
+    return {
+      isLoading: false,
+      characters: [],
+      totalResults: '',
+      maxPerPage: 10,
+      currentURL: '',
+      currentPage: null,
+      numberOfPages: null,
+      queryDone: false,
+    };
+  },
+  methods: {
+    async showCharacters() {
+      this.isLoading = true;
+      await charactersService
+        .getCharacters(this.currentPage)
+        .then((response) => {
+          if (response == 404) {
+            this.pageNotFound();
+            return;
+          } else if (response.results) {
+            this.characters = response.results;
+            this.totalResults = response.count;
+            this.numberOfPages = Math.ceil(this.totalResults / this.maxPerPage);
+          } else {
+            this.somethingWrong();
+            return;
+          }
+        });
+      this.$refs.pagination.checkButtons();
+      this.isLoading = false;
+    },
+    changePage(updatedCurrentPage) {
+      this.currentPage = updatedCurrentPage;
+      this.updateQuery(
+        '/the-sw-universe/characters',
+        'theCharacters',
+        this.currentPage
+      );
+      this.showCharacters();
+      window.scrollTo(0, 0);
+    },
+    viewCharacter(character) {
+      this.$router.push({
+        name: 'CharacterDetail',
+        path: '/the-sw-universe/characters/:name',
+        params: {
+          name: character.name.replace(/\s+/g, '-').toLowerCase(),
+          url: character.url,
+        },
+      });
+    },
+  },
+  async mounted() {
+    var hasParam = this.checkUrlParams(this.$route.fullPath);
+    if (!hasParam) {
+      // if the url doesn't have params, add page 1
+      await this.$router.push({
+        name: 'theCharacters',
+        path: '/the-sw-universe/characters',
+        query: { page: 1 },
+      });
+    }
+
+    if (this.queryDone === false) {
+      this.currentPage = this.fetchCurrentPage(this.$route.fullPath);
+      this.showCharacters();
+      this.queryDone = true;
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/buttons.scss';
+
+p {
+  color: #ffffff;
+}
+.border {
+  border: 1px solid #ffe81f !important;
+  border-radius: 2px;
+  padding-top: 10px;
+}
+a {
+  text-decoration: none !important;
+}
+h2 {
+  min-height: 80px;
+  align-items: center;
+  display: grid;
+}
+</style>

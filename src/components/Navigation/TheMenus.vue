@@ -29,7 +29,7 @@
             <router-link :to="{ name: 'theUniverse' }" class="dropdown-item">
               All Universe
             </router-link>
-            <router-link to="/" class="dropdown-item"> Characters </router-link>
+            <router-link :to="{ name: 'theCharacters', query: {page: 1} }" class="dropdown-item"> Characters </router-link>
             <router-link :to="{ name: 'theMovies', query: {page: 1} }" class="dropdown-item"> Movies </router-link>
             <router-link to="/" class="dropdown-item"> Planets </router-link>
             <router-link to="/" class="dropdown-item"> Spaceships </router-link>

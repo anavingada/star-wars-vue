@@ -14,8 +14,10 @@ import TheMaterials from './components/General/TheMaterials.vue';
 
 import TheUniverse from './components/Universe/TheUniverse.vue';
 import TheMovies from './components/Universe/TheMovies.vue';
+import TheCharacters from './components/Universe/TheCharacters.vue';
 
 import MovieDetail from './components/UniverseDetail/MovieDetail.vue';
+import CharacterDetail from './components/UniverseDetail/CharacterDetail.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,7 +28,9 @@ const router = createRouter({
         { path: '/the-sw-universe/materials', name: 'theMaterials', component: TheMaterials },
         { path: '/the-sw-universe', name: 'theUniverse', component: TheUniverse },
         { path: '/the-sw-universe/movies', name: 'theMovies', component: TheMovies },
-        { path: '/the-sw-universe/movies/:name', name: 'MovieDetail', component: MovieDetail }
+        { path: '/the-sw-universe/movies/:name', name: 'MovieDetail', component: MovieDetail },
+        { path: '/the-sw-universe/characters', name: 'theCharacters', component: TheCharacters },
+        { path: '/the-sw-universe/characters/:name', name: 'CharacterDetail', component: CharacterDetail }
     ],
     linkActiveClass: 'active'
 });

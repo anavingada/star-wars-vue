@@ -23,6 +23,12 @@ const redirectionLinksMixin = {
                 path: '/the-sw-universe/movies',
                 name: 'theMovies'
             });
+        },
+        redirectToCharacters() {
+            this.$router.push({
+                path: '/the-sw-universe/characters',
+                name: 'theCharacters'
+            });
         }
     }
 };
