@@ -1,12 +1,12 @@
 <template>
-  <div id="pagination">
+  <section id="pagination">
     <div class="text-center mt-5 mb-5">
       <button id="prev" class="ms-3 me-3" disabled @click="previousPage()">
         &lt;
       </button>
       <button id="next" class="ms-3 me-3" @click="nextPage()">&gt;</button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

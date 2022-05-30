@@ -1,5 +1,5 @@
 <template>
-  <div class="col-3 text-center">
+  <section class="col-3 text-center">
     <router-link :to="{ name: 'intro' }">
       <img
         src="~@/assets/images/logo.png"
@@ -7,7 +7,7 @@
         class="ps-5 pe-5"
       />
     </router-link>
-  </div>
+  </section>
 </template>
 
 <style scoped>

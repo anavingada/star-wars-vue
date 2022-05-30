@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex">
+  <header class="d-flex">
     <the-logo></the-logo>
     <the-menus></the-menus>
-  </div>
+  </header>
 </template>
 
 <script>

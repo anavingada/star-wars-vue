@@ -1,9 +1,9 @@
 <template>
   <div>
     <the-header></the-header>
-    <div class="container">
+    <main class="container">
       <router-view :key="$route.fullPath"></router-view>
-    </div>
+    </main>
     <the-footer></the-footer>
   </div>
 </template>
