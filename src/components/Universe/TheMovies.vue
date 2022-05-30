@@ -88,7 +88,6 @@ export default {
         'theMovies',
         this.currentPage
       );
-      this.showMovies();
       window.scrollTo(0, 0);
     },
     viewMovie(movie) {

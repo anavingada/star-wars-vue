@@ -87,7 +87,6 @@ export default {
         'thePlanets',
         this.currentPage
       );
-      this.showPlanets();
       window.scrollTo(0, 0);
     },
     viewPlanet(planet) {

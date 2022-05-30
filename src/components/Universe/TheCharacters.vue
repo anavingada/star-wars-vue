@@ -90,7 +90,6 @@ export default {
         'theCharacters',
         this.currentPage
       );
-      this.showCharacters();
       window.scrollTo(0, 0);
     },
     viewCharacter(character) {

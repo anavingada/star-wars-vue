@@ -143,7 +143,6 @@ export default {
         this.characterInfo.starships
       );
       this.species = await this.displaySpecies(this.characterInfo.species);
-      console.log(this.species);
       this.vehicles = await this.displayVehicles(this.characterInfo.vehicles);
       this.isLoading = false;
     },

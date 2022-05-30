@@ -21,25 +21,31 @@ const redirectionLinksMixin = {
         redirectToMovies() {
             this.$router.push({
                 path: '/the-sw-universe/movies',
-                name: 'theMovies'
+                name: 'theMovies',
+                query: { page: 1 }
             });
         },
         redirectToCharacters() {
             this.$router.push({
                 path: '/the-sw-universe/characters',
-                name: 'theCharacters'
+                name: 'theCharacters',
+                query: { page: 1 }
             });
         },
         redirectToPlanets() {
             this.$router.push({
                 path: '/the-sw-universe/planets',
-                name: 'thePlanets'
+                name: 'thePlanets',
+                query: { page: 1 }
             });
         },
         redirectToSpaceships() {
             this.$router.push({
                 path: '/the-sw-universe/spaceships',
-                name: 'theSpaceships'
+                name: 'theSpaceships',
+                query: { page: 1 }
+            });
+        },
             });
         }
     }

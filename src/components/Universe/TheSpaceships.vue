@@ -87,7 +87,6 @@ export default {
         'theSpaceships',
         this.currentPage
       );
-      this.showSpaceships();
       window.scrollTo(0, 0);
     },
     viewSpaceship(spaceship) {
