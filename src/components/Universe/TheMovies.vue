@@ -28,6 +28,7 @@
     </div>
   </div>
   <the-pagination
+    v-show="!isLoading"
     ref="pagination"
     :currentPage="currentPage"
     :numberOfPages="numberOfPages"
