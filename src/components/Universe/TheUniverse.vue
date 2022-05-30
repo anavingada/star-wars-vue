@@ -4,7 +4,6 @@
     <div v-for="topic in topics" :key="topic.id" class="col-md-4 p-4">
       <div class="container">
         <router-link :to="{ name: topic.link, query: { page: 1 } }">
-          <!-- :to="{ name: topic.link, query: { page: 1 } }" -->
           <img :src="require(`@/assets/images/${topic.image}`)" class="image" />
           <div class="middle">
             <h2>{{ topic.title }}</h2>
