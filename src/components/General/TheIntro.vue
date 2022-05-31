@@ -1,18 +1,22 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Welcome</h1>
-  <h2 class="text-center mt-2 mb-4">Find more about the Star Wars Universe</h2>
+  <h1 class="text-center mt-2 mb-4">{{ $t('Welcome') }}</h1>
+  <h2 class="text-center mt-2 mb-4">{{ $t('Find_More_SW_Universe') }}</h2>
   <h3 class="text-center mt-5">
-    Characters, Movies, Planets, Species, Spacechips and Vehicles
+    {{ $t('Characters') }}, {{ $t('Movies') }}, {{ $t('Planets') }},
+    {{ $t('Species') }}, {{ $t('Spaceships') }} {{ $t('and') }}
+    {{ $t('Vehicles') }}
   </h3>
   <hr class="col-6 mx-auto mt-5 mb-5" />
   <div class="d-flex justify-content-around">
     <p>
-      All resources are referenced
-      <router-link :to="{ name: 'theMaterials' }">here</router-link>.
+      {{ $t('Resources_referenced') }}
+      <router-link :to="{ name: 'theMaterials' }">{{ $t('here') }}</router-link
+      >.
     </p>
     <p>
-      If you have any questions, please
-      <a href="mailto:anavingada@gmail.com">contact me</a>.
+      {{ $t('If_Questions') }}
+      <a href="mailto:anavingada@gmail.com">{{ $t('Contact_Me') }}</a
+      >.
     </p>
   </div>
 </template>

@@ -1,15 +1,15 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Star Wars Movies</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('SW_Movies') }}</h1>
   <div v-if="movies === null" class="text-center">
-    <p>No movies found!</p>
+    <p>{{ $t('No_Movies') }}</p>
   </div>
   <div v-else-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div class="d-flex justify-content-around ms-3 me-3">
-      <p>Total of movies: {{ totalResults }}</p>
-      <p>Page {{ currentPage }} / {{ numberOfPages }}</p>
+      <p>{{ $t('Total_Of') }} {{ $t('movies') }}: {{ totalResults }}</p>
+      <p>{{ $t('Page') }} {{ currentPage }} / {{ numberOfPages }}</p>
     </div>
     <div class="d-md-flex flex-md-wrap mt-4">
       <div
@@ -21,8 +21,10 @@
           <h2 style="min-height: 80px">
             {{ movie.title }}
           </h2>
-          <p>Episode {{ movie.episode_id }}</p>
-          <button @click="viewMovie(movie)" class="btn-view">View</button>
+          <p>{{ $t('Episode') }} {{ movie.episode_id }}</p>
+          <button @click="viewMovie(movie)" class="btn-view">
+            {{ $t('View') }}
+          </button>
         </div>
       </div>
     </div>

@@ -1,12 +1,11 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Materials</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('Materials') }}</h1>
   <p class="text-center">
-    This web app was built with Vue and used resources available on the
-    internet. Please find below all references to the used resources.
+    {{ $t('Materials_Intro') }}
   </p>
-  <p class="text-center">Thank you.</p>
+  <p class="text-center">{{ $t('Thank_You') }}.</p>
   <div class="container mt-5 mb-5">
-    <h2>API</h2>
+    <h2>{{ $t('API') }}</h2>
     <div v-for="api in apis" :key="api.id">
       <a :href="api.link" target="_blank" class="d-flex"
         ><h3>{{ api.title }}</h3>
@@ -14,7 +13,7 @@
       ></a>
       <p>{{ api.obs }}</p>
     </div>
-    <h2 class="mt-5">Images</h2>
+    <h2 class="mt-5">{{ $t('Images') }}</h2>
     <div v-for="image in images" :key="image.id">
       <a :href="image.link" target="_blank" class="d-flex"
         ><h3>{{ image.title }}</h3>

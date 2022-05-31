@@ -1,28 +1,28 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ characterInfo.name }}</h1>
       <hr class="mx-auto col-3" />
-      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <p class="detailSection fw-bold mt-5">{{ $t('Characteristics') }}:</p>
       <div class="d-flex">
         <div class="col-6">
-          <p>Gender: {{ characterInfo.gender }}</p>
-          <p>Birth Year: {{ characterInfo.birth_year }}</p>
-          <p>Planet of origin: {{ homeworld.name }}</p>
-          <p>Height: {{ characterInfo.height }}</p>
+          <p>{{ $t('Gender') }}: {{ characterInfo.gender }}</p>
+          <p>{{ $t('Birth_Year') }}: {{ characterInfo.birth_year }}</p>
+          <p>{{ $t('Planet_Origin') }}: {{ homeworld.name }}</p>
+          <p>{{ $t('Height') }}: {{ characterInfo.height }}</p>
         </div>
         <div class="col-6">
-          <p>Mass: {{ characterInfo.mass }}</p>
-          <p>Skin color: {{ characterInfo.skin_color }}</p>
-          <p>Hair color: {{ characterInfo.hair_color }}</p>
-          <p>Eye color: {{ characterInfo.eye_color }}</p>
+          <p>{{ $t('Mass') }}: {{ characterInfo.mass }}</p>
+          <p>{{ $t('Skin_color') }}: {{ characterInfo.skin_color }}</p>
+          <p>{{ $t('Hair_color') }}: {{ characterInfo.hair_color }}</p>
+          <p>{{ $t('Eye_color') }}: {{ characterInfo.eye_color }}</p>
         </div>
       </div>
       <div v-if="movies.length">
-        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Movies') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div v-if="spaceships.length">
-        <p class="detailSection fw-bold mt-5">Spaceships:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Spaceships') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div v-if="species.length">
-        <p class="detailSection fw-bold mt-5">Species:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Species') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="specie in species" :key="specie.url">
             <p>
@@ -65,7 +65,7 @@
         </div>
       </div>
       <div v-if="vehicles.length">
-        <p class="detailSection fw-bold mt-5">Vehicles:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Vehicles') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="vehicle in vehicles" :key="vehicle.url">
             <p>
@@ -80,14 +80,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(characterUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this
-        character
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('character') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToCharacters()">
-      Return to characters
+      {{ $t('Return_To') }} {{ $t('characters') }}
     </button>
   </div>
 </template>

@@ -1,22 +1,24 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Star Wars Vehicles</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('SW_Vehicles') }}</h1>
   <div v-if="vehicles === null" class="text-center">
-    <p>No vehicles found!</p>
+    <p>{{ $t('No_Vehicles') }}</p>
   </div>
   <div v-else-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div class="d-flex justify-content-around ms-3 me-3">
-      <p>Total of vehicles: {{ totalResults }}</p>
-      <p>Page {{ currentPage }} / {{ numberOfPages }}</p>
+      <p>{{ $t('Total_Of') }} {{ $t('vehicles') }}: {{ totalResults }}</p>
+      <p>{{ $t('Page') }} {{ currentPage }} / {{ numberOfPages }}</p>
     </div>
     <div class="mt-4">
       <div v-for="vehicle in vehicles" :key="vehicle.url">
         <div class="d-flex ps-4 pe-4 align-items-center">
           <h2 class="col-5">{{ vehicle.name }}</h2>
           <p class="col-4 noMargin">{{ vehicle.model }}</p>
-          <button @click="viewVehicle(vehicle)" class="btn-view">View</button>
+          <button @click="viewVehicle(vehicle)" class="btn-view">
+            {{ $t('View') }}
+          </button>
         </div>
         <hr />
       </div>
@@ -36,7 +38,10 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 
 import { vehiclesService } from '@/services/vehicles_service.js';
 
@@ -88,7 +93,7 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    }
+    },
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);

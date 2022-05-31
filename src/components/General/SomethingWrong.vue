@@ -1,11 +1,9 @@
 <template>
   <div class="text-center">
-    <h1 class="mt-2 mb-4">Oops! Something went wrong.</h1>
-    <h2 class="mb-5">
-      You'll be redirected to the homepage in {{ countDown }}.
-    </h2>
+    <h1 class="mt-2 mb-4">{{ $t('Oops') }} {{ $t('Something_Wrong') }}</h1>
+    <h2 class="mb-5">{{ $t('Redirected_In') }} {{ countDown }}.</h2>
     <router-link :to="{ name: 'intro' }" class="btn-home">
-      Go to the Homepage
+      {{ $t('Go_Homepage') }}
     </router-link>
   </div>
 </template>

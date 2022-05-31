@@ -1,29 +1,31 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ specieInfo.name }}</h1>
       <hr class="mx-auto col-3" />
-      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <p class="detailSection fw-bold mt-5">{{ $t('Characteristics') }}:</p>
       <div class="d-flex">
         <div class="col-6">
-          <p>Classification: {{ specieInfo.classification }}</p>
-          <p>Designation: {{ specieInfo.designation }}</p>
-          <p v-if="homeworld.name">Planet of origin: {{ homeworld.name }}</p>
-          <p>Language: {{ specieInfo.language }}</p>
-          <p>Average lifespan: {{ specieInfo.average_lifespan }}</p>
+          <p>{{ $t('Classification') }}: {{ specieInfo.classification }}</p>
+          <p>{{ $t('Designation') }}: {{ specieInfo.designation }}</p>
+          <p v-if="homeworld.name">
+            {{ $t('Planet_Origin') }}: {{ homeworld.name }}
+          </p>
+          <p>{{ $t('Language') }}: {{ specieInfo.language }}</p>
+          <p>{{ $t('Average_lifespan') }}: {{ specieInfo.average_lifespan }}</p>
         </div>
         <div class="col-6">
-          <p>Skin Colors: {{ specieInfo.skin_colors }}</p>
-          <p>Hair color: {{ specieInfo.hair_colors }}</p>
-          <p>Eye color: {{ specieInfo.eye_colors }}</p>
-          <p>Average height: {{ specieInfo.average_height }}</p>
+          <p>{{ $t('Skin_colors') }}: {{ specieInfo.skin_colors }}</p>
+          <p>{{ $t('Hair_color') }}: {{ specieInfo.hair_colors }}</p>
+          <p>{{ $t('Eye_color') }}: {{ specieInfo.eye_colors }}</p>
+          <p>{{ $t('Average_height') }}: {{ specieInfo.average_height }}</p>
         </div>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Characters:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Characters') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -40,7 +42,7 @@
         </div>
       </div>
       <div v-if="movies.length">
-        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Movies') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
@@ -55,13 +57,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(specieUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this specie
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('specie') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToSpecies()">
-      Return to species
+      {{ $t('Return_To') }} {{ $t('species') }}
     </button>
   </div>
 </template>

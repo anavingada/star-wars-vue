@@ -1,9 +1,11 @@
+import i18n from '../localization/languageIndex';
+
 const apis = [
   {
     id: '001',
-    title: 'Star Wars API',
+    title: i18n.t("SW_API"),
     link: 'https://swapi.dev/',
-    obs: 'From Swapi. This API provides all the Star Wars Data in all pages of this web.'
+    obs: i18n.t("Obs_Api")
   }
 ];
 

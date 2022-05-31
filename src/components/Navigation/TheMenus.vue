@@ -1,5 +1,5 @@
 <template>
-  <nav class="col-9 navbar navbar-expand-md navbar-light">
+  <nav class="col-8 navbar navbar-expand-md navbar-light">
     <button
       class="navbar-toggler"
       type="button"
@@ -23,47 +23,47 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            The SW Universe
+            {{ $t('SW_Universe') }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <router-link :to="{ name: 'theUniverse' }" class="dropdown-item">
-              All Universe
+              {{ $t('All_Universe') }}
             </router-link>
             <router-link
               :to="{ name: 'theCharacters', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Characters
+              {{ $t('Characters') }}
             </router-link>
             <router-link
               :to="{ name: 'theMovies', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Movies
+              {{ $t('Movies') }}
             </router-link>
             <router-link
               :to="{ name: 'thePlanets', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Planets
+              {{ $t('Planets') }}
             </router-link>
             <router-link
               :to="{ name: 'theSpaceships', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Spaceships
+              {{ $t('Spaceships') }}
             </router-link>
             <router-link
               :to="{ name: 'theSpecies', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Species
+              {{ $t('Species') }}
             </router-link>
             <router-link
               :to="{ name: 'theVehicles', query: { page: 1 } }"
               class="dropdown-item"
             >
-              Vehicles
+              {{ $t('Vehicles') }}
             </router-link>
           </div>
         </li>
@@ -74,6 +74,7 @@
 
 <script>
 import { redirectionLinksMixin } from '@/mixins/redirectionLinks.js';
+
 export default {
   mixins: [redirectionLinksMixin],
 };

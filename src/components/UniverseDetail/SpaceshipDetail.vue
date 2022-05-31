@@ -1,32 +1,37 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ spaceshipInfo.name }}</h1>
       <hr class="mx-auto col-3" />
-      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <p class="detailSection fw-bold mt-5">{{ $t('Characteristics') }}:</p>
       <div class="d-flex">
         <div class="col-6">
-          <p>Model: {{ spaceshipInfo.model }}</p>
-          <p>Manufacturer: {{ spaceshipInfo.manufacturer }}</p>
-          <p>Class: {{ spaceshipInfo.starship_class }}</p>
-          <p>Cost in credits: {{ spaceshipInfo.cost_in_credits }}</p>
-          <p>Length: {{ spaceshipInfo.length }}</p>
-          <p>Maximum Speed: {{ spaceshipInfo.max_atmosphering_speed }}</p>
+          <p>{{ $t('Model') }}: {{ spaceshipInfo.model }}</p>
+          <p>{{ $t('Manufacturer') }}: {{ spaceshipInfo.manufacturer }}</p>
+          <p>{{ $t('Class') }}: {{ spaceshipInfo.starship_class }}</p>
+          <p>{{ $t('Cost_credits') }}: {{ spaceshipInfo.cost_in_credits }}</p>
+          <p>{{ $t('Length') }}: {{ spaceshipInfo.length }}</p>
+          <p>
+            {{ $t('Maximum_Speed') }}:
+            {{ spaceshipInfo.max_atmosphering_speed }}
+          </p>
         </div>
         <div class="col-6">
-          <p>Consumables: {{ spaceshipInfo.consumables }}</p>
-          <p>Hyperdrive Rating: {{ spaceshipInfo.hyperdrive_rating }}</p>
-          <p>MGLT: {{ spaceshipInfo.MGLT }}</p>
-          <p>Cargo Capacity: {{ spaceshipInfo.cargo_capacity }}</p>
-          <p>Crew: {{ spaceshipInfo.crew }}</p>
-          <p>Passengers: {{ spaceshipInfo.passengers }}</p>
+          <p>{{ $t('Consumables') }}: {{ spaceshipInfo.consumables }}</p>
+          <p>
+            {{ $t('Hyperdrive_Rating') }}: {{ spaceshipInfo.hyperdrive_rating }}
+          </p>
+          <p>{{ $t('MGLT') }}: {{ spaceshipInfo.MGLT }}</p>
+          <p>{{ $t('Cargo_Capacity') }}: {{ spaceshipInfo.cargo_capacity }}</p>
+          <p>{{ $t('Crew') }}: {{ spaceshipInfo.crew }}</p>
+          <p>{{ $t('Passengers') }}: {{ spaceshipInfo.passengers }}</p>
         </div>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Pilots:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Pilots') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -43,7 +48,7 @@
         </div>
       </div>
       <div v-if="movies.length">
-        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Movies') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
@@ -58,14 +63,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(spaceshipUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this
-        spaceship
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('spaceship') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToSpaceships()">
-      Return to spaceships
+      {{ $t('Return_To') }} {{ $t('spaceships') }}
     </button>
   </div>
 </template>

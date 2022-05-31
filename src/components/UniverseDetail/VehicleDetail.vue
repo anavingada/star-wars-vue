@@ -1,30 +1,32 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ vehicleInfo.name }}</h1>
       <hr class="mx-auto col-3" />
-      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <p class="detailSection fw-bold mt-5">{{ $t('Characteristics') }}:</p>
       <div class="d-flex">
         <div class="col-6">
-          <p>Model: {{ vehicleInfo.model }}</p>
-          <p>Manufacturer: {{ vehicleInfo.manufacturer }}</p>
-          <p>Class: {{ vehicleInfo.vehicle_class }}</p>
-          <p>Cost in credits: {{ vehicleInfo.cost_in_credits }}</p>
-          <p>Length: {{ vehicleInfo.length }}</p>
+          <p>{{ $t('Model') }}: {{ vehicleInfo.model }}</p>
+          <p>{{ $t('Manufacturer') }}: {{ vehicleInfo.manufacturer }}</p>
+          <p>{{ $t('Class') }}: {{ vehicleInfo.vehicle_class }}</p>
+          <p>{{ $t('Cost_credits') }}: {{ vehicleInfo.cost_in_credits }}</p>
+          <p>{{ $t('Length') }}: {{ vehicleInfo.length }}</p>
         </div>
         <div class="col-6">
-          <p>Maximum Speed: {{ vehicleInfo.max_atmosphering_speed }}</p>
-          <p>Consumables: {{ vehicleInfo.consumables }}</p>
-          <p>Cargo Capacity: {{ vehicleInfo.cargo_capacity }}</p>
-          <p>Crew: {{ vehicleInfo.crew }}</p>
-          <p>Passengers: {{ vehicleInfo.passengers }}</p>
+          <p>
+            {{ $t('Maximum_Speed') }}: {{ vehicleInfo.max_atmosphering_speed }}
+          </p>
+          <p>{{ $t('Consumables') }}: {{ vehicleInfo.consumables }}</p>
+          <p>{{ $t('Cargo_Capacity') }}: {{ vehicleInfo.cargo_capacity }}</p>
+          <p>{{ $t('Crew') }}: {{ vehicleInfo.crew }}</p>
+          <p>{{ $t('Passengers') }}: {{ vehicleInfo.passengers }}</p>
         </div>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Pilots:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Pilots') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -41,7 +43,7 @@
         </div>
       </div>
       <div v-if="movies.length">
-        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Movies') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
@@ -56,13 +58,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(vehicleUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this vehicle
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('vehicle') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToVehicles()">
-      Return to vehicles
+      {{ $t('Return_To') }} {{ $t('vehicles') }}
     </button>
   </div>
 </template>

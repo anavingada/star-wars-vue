@@ -1,15 +1,15 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Star Wars Species</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('SW_Species') }}</h1>
   <div v-if="species === null" class="text-center">
-    <p>No species found!</p>
+    <p>{{ $t('No_Species') }}</p>
   </div>
   <div v-else-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div class="d-flex justify-content-around ms-3 me-3">
-      <p>Total of species: {{ totalResults }}</p>
-      <p>Page {{ currentPage }} / {{ numberOfPages }}</p>
+      <p>{{ $t('Total_Of') }} {{ $t('species') }}: {{ totalResults }}</p>
+      <p>{{ $t('Page') }} {{ currentPage }} / {{ numberOfPages }}</p>
     </div>
     <div class="d-md-flex flex-md-wrap mt-4">
       <div
@@ -22,7 +22,9 @@
             {{ specie.name }}
           </h2>
           <p>{{ specie.classification }}</p>
-          <button @click="viewSpecie(specie)" class="btn-view">View</button>
+          <button @click="viewSpecie(specie)" class="btn-view">
+            {{ $t('View') }}
+          </button>
         </div>
       </div>
     </div>
@@ -41,7 +43,10 @@ import ThePagination from './ThePagination.vue';
 
 import currentPageMixin from '@/mixins/currentPage.js';
 import { urlsMixin } from '@/mixins/urls.js';
-import { redirectionLinksMixin, viewDetailMixin } from '@/mixins/redirectionLinks.js';
+import {
+  redirectionLinksMixin,
+  viewDetailMixin,
+} from '@/mixins/redirectionLinks.js';
 
 import { speciesService } from '@/services/species_service.js';
 
@@ -93,7 +98,7 @@ export default {
         this.currentPage
       );
       window.scrollTo(0, 0);
-    }
+    },
   },
   async mounted() {
     var hasParam = this.checkUrlParams(this.$route.fullPath);

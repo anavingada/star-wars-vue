@@ -1,28 +1,28 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ planetInfo.name }}</h1>
       <hr class="mx-auto col-3" />
-      <p class="detailSection fw-bold mt-5">Characteristics:</p>
+      <p class="detailSection fw-bold mt-5">{{ $t('Characteristics') }}:</p>
       <div class="d-flex">
         <div class="col-6">
-          <p>Terrain: {{ planetInfo.terrain }}</p>
-          <p>Climate: {{ planetInfo.climate }}</p>
-          <p>Surface Water: {{ planetInfo.surface_water }}</p>
-          <p>Population: {{ planetInfo.population }}</p>
+          <p>{{ $t('Terrain') }}: {{ planetInfo.terrain }}</p>
+          <p>{{ $t('Climate') }}: {{ planetInfo.climate }}</p>
+          <p>{{ $t('Surface_Water') }}: {{ planetInfo.surface_water }}</p>
+          <p>{{ $t('Population') }}: {{ planetInfo.population }}</p>
         </div>
         <div class="col-6">
-          <p>Rotarion Period: {{ planetInfo.rotation_period }}</p>
-          <p>Orbital Period: {{ planetInfo.orbital_period }}</p>
-          <p>Diameter: {{ planetInfo.diameter }}</p>
-          <p>Gravity: {{ planetInfo.gravity }}</p>
+          <p>{{ $t('Rotarion_Period') }}: {{ planetInfo.rotation_period }}</p>
+          <p>{{ $t('Orbital_Period') }}: {{ planetInfo.orbital_period }}</p>
+          <p>{{ $t('Diameter') }}: {{ planetInfo.diameter }}</p>
+          <p>{{ $t('Gravity') }}: {{ planetInfo.gravity }}</p>
         </div>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Residents:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Residents') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div v-if="movies.length">
-        <p class="detailSection fw-bold mt-5">Movies:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Movies') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="movie in movies" :key="movie.url">
             <p>
@@ -54,13 +54,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(planetUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this planet
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('planet') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToPlanets()">
-      Return to planets
+      {{ $t('Return_To') }} {{ $t('planets') }}
     </button>
   </div>
 </template>

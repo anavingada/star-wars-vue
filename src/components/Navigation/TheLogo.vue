@@ -3,7 +3,7 @@
     <router-link :to="{ name: 'intro' }">
       <img
         src="~@/assets/images/logo.png"
-        alt="Star Wars Logo"
+        :alt="$t('SW_Logo')"
         class="ps-5 pe-5"
       />
     </router-link>

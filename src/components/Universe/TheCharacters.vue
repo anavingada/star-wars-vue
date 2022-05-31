@@ -1,15 +1,15 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Star Wars Characters</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('SW_Characters') }}</h1>
   <div v-if="characters === null" class="text-center">
-    <p>No characters found!</p>
+    <p>{{ $t('No_Characters') }}</p>
   </div>
   <div v-else-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div class="d-flex justify-content-around ms-3 me-3">
-      <p>Total of characters: {{ totalResults }}</p>
-      <p>Page {{ currentPage }} / {{ numberOfPages }}</p>
+      <p>{{ $t('Total_Of') }} {{ $t('characters') }}: {{ totalResults }}</p>
+      <p>{{ $t('Page') }} {{ currentPage }} / {{ numberOfPages }}</p>
     </div>
     <div class="d-md-flex flex-md-wrap mt-4">
       <div
@@ -21,7 +21,7 @@
           <h2 style="min-height: 80px">{{ character.name }}</h2>
           <p>{{ character.gender }}</p>
           <button @click="viewCharacter(character)" class="btn-view">
-            View
+            {{ $t('View') }}
           </button>
         </div>
       </div>

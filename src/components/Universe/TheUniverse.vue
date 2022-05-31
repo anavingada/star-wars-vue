@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-center mt-2 mb-4">Star Wars Universe</h1>
+  <h1 class="text-center mt-2 mb-4">{{ $t('StarWars_Universe') }}</h1>
   <div class="d-md-flex flex-md-wrap">
     <div v-for="topic in topics" :key="topic.id" class="col-md-4 p-4">
       <div class="container">
@@ -22,7 +22,7 @@ export default {
     return {
       topics: AllUniverseSource.allUniverse,
     };
-  }
+  },
 };
 </script>
 

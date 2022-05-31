@@ -1,25 +1,27 @@
 <template>
   <div v-if="isLoading" class="text-center">
-    <p>Loading...</p>
+    <p>{{ $t('Loading_') }}</p>
   </div>
   <div v-else>
     <div>
       <h1 class="text-center mt-2 mb-4">{{ movieInfo.title }}</h1>
       <hr class="mx-auto col-3" />
-      <h2 class="text-center mt-2 mb-5">Episode {{ movieInfo.episode_id }}</h2>
+      <h2 class="text-center mt-2 mb-5">
+        {{ $t('Episode') }} {{ movieInfo.episode_id }}
+      </h2>
       <div class="d-flex justify-content-between">
         <p class="detailSection fw-bold">
-          Director: <span>{{ movieInfo.director }}</span>
+          {{ $t('Director') }}: <span>{{ movieInfo.director }}</span>
         </p>
         <p class="detailSection fw-bold">
-          Producer(s): <span>{{ movieInfo.producer }}</span>
+          {{ $t('Producer_s') }}: <span>{{ movieInfo.producer }}</span>
         </p>
         <p class="detailSection fw-bold">
-          Release date: <span>{{ movieInfo.release_date }}</span>
+          {{ $t('Release_date') }}: <span>{{ movieInfo.release_date }}</span>
         </p>
       </div>
       <div v-if="characters.length">
-        <p class="detailSection fw-bold mt-5">Characters:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Characters') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -36,7 +38,7 @@
         </div>
       </div>
       <div v-if="planets.length">
-        <p class="detailSection fw-bold mt-5">Planets:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Planets') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="planet in planets" :key="planet.url">
             <p>
@@ -49,7 +51,7 @@
         </div>
       </div>
       <div v-if="spaceships.length">
-        <p class="detailSection fw-bold mt-5">Spaceships:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Spaceships') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div
             class="col-3"
@@ -66,7 +68,7 @@
         </div>
       </div>
       <div v-if="species.length">
-        <p class="detailSection fw-bold mt-5">Species:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Species') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="specie in species" :key="specie.url">
             <p>
@@ -79,7 +81,7 @@
         </div>
       </div>
       <div v-if="vehicles.length">
-        <p class="detailSection fw-bold mt-5">Vehicles:</p>
+        <p class="detailSection fw-bold mt-5">{{ $t('Vehicles') }}:</p>
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-3" v-for="vehicle in vehicles" :key="vehicle.url">
             <p>
@@ -94,13 +96,14 @@
     </div>
     <div class="mt-5 text-center">
       <button class="btn-search" @click="search(movieUrlName)">
-        <i class="fas fa-mouse-pointer"></i> Run a google search on this movie
+        <i class="fas fa-mouse-pointer"></i> {{ $t('Run_Search_On') }}
+        {{ $t('movie') }}
       </button>
     </div>
   </div>
   <div class="mt-5 text-center">
     <button class="btn-return" @click="redirectToMovies()">
-      Return to movies
+      {{ $t('Return_To') }} {{ $t('movies') }}
     </button>
   </div>
 </template>
@@ -112,6 +115,7 @@ import {
 } from '@/mixins/redirectionLinks.js';
 import { displayInfoMixin } from '@/mixins/displayInfo.js';
 import { searchesMixin } from '@/mixins/searches.js';
+
 import { moviesService } from '@/services/movies_service.js';
 
 export default {
