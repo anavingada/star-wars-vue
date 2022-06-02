@@ -8,18 +8,18 @@
     <h2>{{ $t('API') }}</h2>
     <div v-for="api in apis" :key="api.id">
       <a :href="api.link" target="_blank" class="d-flex"
-        ><h3>{{ api.title }}</h3>
+        ><h3>{{ $t(api.title) }}</h3>
         <i class="fas fa-external-link-alt"></i
       ></a>
-      <p>{{ api.obs }}</p>
+      <p>{{ $t(api.obs) }}</p>
     </div>
     <h2 class="mt-5">{{ $t('Images') }}</h2>
     <div v-for="image in images" :key="image.id">
       <a :href="image.link" target="_blank" class="d-flex"
-        ><h3>{{ image.title }}</h3>
+        ><h3>{{ $t(image.title) }}</h3>
         <i class="fas fa-external-link-alt"></i
       ></a>
-      <p>{{ image.obs }}</p>
+      <p>{{ $t(image.obs) }}</p>
       <hr />
     </div>
   </div>

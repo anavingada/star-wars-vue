@@ -6,7 +6,7 @@
         <router-link :to="{ name: topic.link, query: { page: 1 } }">
           <img :src="require(`@/assets/images/${topic.image}`)" class="image" />
           <div class="middle">
-            <h2>{{ topic.title }}</h2>
+            <h2>{{ $t(topic.title) }}</h2>
           </div>
         </router-link>
       </div>
