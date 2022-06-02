@@ -1,5 +1,5 @@
 <template>
-  <nav class="col-8 navbar navbar-expand-md navbar-light">
+  <nav class="col-7 navbar navbar-expand-md navbar-light">
     <button
       class="navbar-toggler"
       type="button"

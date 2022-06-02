@@ -6,7 +6,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
-import i18n from "./localization/languageIndex"; // component for languages
+import i18n from "./localization/languageIndex";
 
 import TheIntro from './components/General/TheIntro.vue';
 import NotFound from './components/General/NotFound.vue';
