@@ -1,5 +1,5 @@
 <template>
-  <header class="d-flex">
+  <header class="container d-flex">
     <the-logo></the-logo>
     <the-menus></the-menus>
     <language-selection></language-selection>
