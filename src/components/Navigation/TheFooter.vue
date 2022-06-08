@@ -1,12 +1,12 @@
 <template>
   <footer class="mt-5 footer-container">
-    <div class="container d-md-flex footer-minH">
-      <section class="d-flex col-6 text-center">
+    <div class="container d-grid d-md-flex footer-minH">
+      <section id="rights" class="d-flex col-md-6 text-center">
         <p style="width: 100%">
           {{ $t('SW_App') }} {{ $t('Ana_Vingada') }} {{ $t('Rights_Reserved') }}
         </p>
       </section>
-      <section class="d-flex col-6 justify-content-center">
+      <section id="quick-links" class="d-flex col-md-6 justify-content-center">
         <p>
           <a href="mailto:anavingada@gmail.com">{{ $t('Contact') }}</a>
         </p>
@@ -42,5 +42,13 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  #rights {
+    order: 2;
+  }
+  #quick-links {
+    order: 1;
+  }
 }
 </style>
