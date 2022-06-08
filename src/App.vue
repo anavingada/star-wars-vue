@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <the-header></the-header>
-    <main class="container">
-      <router-view :key="$route.fullPath"></router-view>
-    </main>
-    <the-footer></the-footer>
-  </div>
+  <the-header></the-header>
+  <main class="container">
+    <router-view :key="$route.fullPath"></router-view>
+  </main>
+  <the-footer></the-footer>
 </template>
 
 <script>

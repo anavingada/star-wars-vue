@@ -24,6 +24,9 @@
   border: 3px solid #ffe81f;
   border-radius: 2px;
   min-height: 100px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 p,
 a {
