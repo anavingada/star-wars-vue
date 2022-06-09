@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-center mt-2 mb-4">{{ $t('StarWars_Universe') }}</h1>
   <div class="d-md-flex flex-md-wrap">
-    <div v-for="topic in topics" :key="topic.id" class="col-md-4 p-4">
+    <div v-for="topic in topics" :key="topic.id" class="col-md-6 col-xl-4 p-4">
       <div class="container">
         <router-link :to="{ name: topic.link, query: { page: 1 } }">
           <img :src="require(`@/assets/images/${topic.image}`)" class="image" />
