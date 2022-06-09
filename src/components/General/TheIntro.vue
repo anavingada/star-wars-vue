@@ -7,7 +7,7 @@
     {{ $t('Vehicles') }}
   </h3>
   <hr class="col-6 mx-auto mt-5 mb-5" />
-  <div class="d-flex justify-content-around">
+  <div class="d-md-flex justify-content-around">
     <p>
       {{ $t('Resources_referenced') }}
       <router-link :to="{ name: 'theMaterials' }">{{ $t('here') }}</router-link
@@ -38,5 +38,10 @@ hr {
 a {
   color: #ffffff;
   text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  p {
+    text-align: center;
+  }
 }
 </style>
