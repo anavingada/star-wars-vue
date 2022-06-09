@@ -10,9 +10,11 @@
         <p>
           <a href="mailto:anavingada@gmail.com">{{ $t('Contact') }}</a>
         </p>
-        <router-link :to="{ name: 'theMaterials' }">
-          {{ $t('Material_Sources') }}
-        </router-link>
+        <p>
+          <router-link :to="{ name: 'theMaterials' }">
+            {{ $t('Material_Sources') }}
+          </router-link>
+        </p>
       </section>
     </div>
   </footer>
@@ -49,6 +51,15 @@ a:hover {
   }
   #quick-links {
     order: 1;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #quick-links {
+    flex-direction: column;
+  }
+  #quick-links p {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
   }
 }
 </style>
