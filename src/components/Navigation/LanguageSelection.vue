@@ -1,11 +1,11 @@
 <template>
-  <section class="col-2 d-grid align-items-center text-center">
+  <div class="col-md-3 col-lg-2 d-grid align-items-center text-center">
     <select v-model="selected" @change="changeLanguage($event)">
       <option class="option" value="en">{{ $t('English') }}</option>
       <option class="option" value="es">{{ $t('Spanish') }}</option>
       <option class="option" value="pt">{{ $t('Portuguese') }}</option>
     </select>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -33,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 select {
   margin: auto;
+  width: 100%;
   min-height: 30px;
   max-width: 150px;
   min-width: 60px;
@@ -45,5 +46,14 @@ select {
 .option {
   background-color: #000000;
   color: #ffffff;
+}
+@media only screen and (max-width: 767px) {
+  div {
+    float: right;
+  }
+  select {
+    border: none;
+    font-size: 18px;
+  }
 }
 </style>

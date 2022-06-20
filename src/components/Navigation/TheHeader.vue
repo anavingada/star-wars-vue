@@ -1,21 +1,20 @@
 <template>
-  <header class="container d-flex">
-    <the-logo></the-logo>
-    <the-menus></the-menus>
-    <language-selection></language-selection>
+  <header class="container mb-5">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <the-logo></the-logo>
+      <the-menus></the-menus>
+    </nav>
   </header>
 </template>
 
 <script>
 import TheLogo from './TheLogo.vue';
 import TheMenus from './TheMenus.vue';
-import LanguageSelection from './LanguageSelection.vue';
 
 export default {
   components: {
     TheLogo,
     TheMenus,
-    LanguageSelection,
   },
 };
 </script>
